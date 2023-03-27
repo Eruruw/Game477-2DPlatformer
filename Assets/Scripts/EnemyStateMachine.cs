@@ -16,10 +16,10 @@ public enum ShadowManState {
 }
 
 
-public class ShadowMan : MonoBehaviour {
+public class EnemyStateMachine : MonoBehaviour {
   #region Fields and Properties
   // set in inspector
-  public float speed = 5;
+  public float speed = 5f;
   public Transform tfPlayer;
   public float distFromPlayer = 3;
   public float speedInc = 50;
@@ -29,7 +29,7 @@ public class ShadowMan : MonoBehaviour {
   private Dictionary<State, Action> stateExitMeths;
   private Dictionary<State, Action> stateStayMeths;
   private CharacterController2D charCon;
-  private Animator animator;
+  //private Animator animator;
   private float xTarget;
   private bool jump;
 
@@ -63,7 +63,7 @@ public class ShadowMan : MonoBehaviour {
     jump = false;
     State = State.IDLE;
     charCon = GetComponent<CharacterController2D>();
-    animator = GetComponent<Animator>();
+    //animator = GetComponent<Animator>();
   }
 
 
@@ -134,7 +134,7 @@ public class ShadowMan : MonoBehaviour {
     float dir = (xPlayerPos - xMyPos) < 0 ? -1 : 1;
     charCon.Move(dir * speed * Time.fixedDeltaTime, false, jump);
     jump = false;
-    animator.SetFloat("Idle Run", 1);
+    //animator.SetFloat("Idle Run", 1);
   }
   private void StateStayPatrolLeft() {
     if (transform.position.x <= xTarget) {
@@ -143,18 +143,21 @@ public class ShadowMan : MonoBehaviour {
     else {
       charCon.Move(-speed * Time.fixedDeltaTime, false, jump);
       jump = false;
-      animator.SetFloat("Idle Run", 1);
+      //animator.SetFloat("Idle Run", 1);
     }
+    Debug.Log("I am patrolling left!");
   }
   private void StateStayPatrolRight() {
     if (transform.position.x >= xTarget) {
       ChangeState(State.PATROL_LEFT);
     }
     else {
+      Debug.Log(jump);
       charCon.Move(speed * Time.fixedDeltaTime, false, jump);
       jump = false;
-      animator.SetFloat("Idle Run", 1);
+      //animator.SetFloat("Idle Run", 1);
     }
+    Debug.Log("I am patrolling right!");
   }
   private void StateStayRunAway() {
     if (Mathf.Abs(transform.position.x - tfPlayer.position.x) > distFromPlayer) {
@@ -163,13 +166,15 @@ public class ShadowMan : MonoBehaviour {
     else {
       charCon.Move(speed * Time.fixedDeltaTime, false, jump);
       jump = false;
-      animator.SetFloat("Idle Run", 1);
+      //animator.SetFloat("Idle Run", 1);
     }
+    Debug.Log("I am patrolling running away!");
   }
   private void StateStayIdle() {
     if (charCon.IsPlayerOnGround()) {
       ChangeState(State.RUN_AWAY);
     }
+    Debug.Log("I am staying idle!");
   }
   #endregion
   #endregion
