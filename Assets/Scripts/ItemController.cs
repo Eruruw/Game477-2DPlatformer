@@ -10,10 +10,4 @@ public class ItemController : MonoBehaviour
     }
 
     public static int HPPotion_HealAmount = 5;
-
-    public ItemController()
-    {
-
-    }
-
 }

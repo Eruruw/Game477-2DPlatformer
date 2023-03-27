@@ -13,24 +13,49 @@ public class HPController : MonoBehaviour
     IC ic;
 
     bool CD;
+    bool IsStillKickinIt;
 
     void TakeDamageFromWeapon(WC.Weapon weapon)
     {
         switch (weapon)
         {
             case WC.Weapon.Whip:
-                CurrentHP = CurrentHP - WC.WhipDamage; break;
+                if (CurrentHP - WC.WhipDamage <= 0)
+                {
+                    CurrentHP = 0;
+                    IsStillKickinIt = false;
+                    Debug.Log("Tragic");
+                }
+                else
+                {
+                    CurrentHP -= WC.WhipDamage;
+                }
+                break;
             default:
                 break;
         }
     }
 
+    // Need to subtract item from inventory
     void HealHPFromItem(IC.Item item)
     {
+        if (CurrentHP == HPCap || !IsStillKickinIt)
+        {
+            // When/if inventory system is implemented, do not remove the item from the player's inventory
+            return;
+        }
         switch (item)
         {
             case IC.Item.HPPotion: 
-                CurrentHP = CurrentHP + IC.HPPotion_HealAmount; break;
+                if (CurrentHP + IC.HPPotion_HealAmount > HPCap) 
+                {
+                    CurrentHP = HPCap;
+                }
+                else 
+                {
+                    CurrentHP += IC.HPPotion_HealAmount; 
+                }
+                break;
             default:
                 break;
         }
@@ -40,6 +65,7 @@ public class HPController : MonoBehaviour
     void Start()
     {
         CD = false;
+        IsStillKickinIt = true;
     }
 
     // Update is called once per frame
@@ -48,9 +74,15 @@ public class HPController : MonoBehaviour
         if (Input.GetKeyDown("0"))
         {
             if (!CD)
+            {
                 TakeDamageFromWeapon(WC.Weapon.Whip);
-            StartCoroutine(DamageCD());
-            Debug.Log("OOh ouch! - The Bastard");
+                StartCoroutine(DamageCD());
+                Debug.Log("OOh ouch! - The Bastard");
+            }
+        }
+        if (Input.GetKeyDown("9"))
+        {
+            HealHPFromItem(IC.Item.HPPotion);
         }
     }
 

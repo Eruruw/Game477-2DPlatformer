@@ -10,9 +10,4 @@ public class TempWeaponController : MonoBehaviour
     }
 
     public static int WhipDamage = 3;
-
-    public TempWeaponController()
-    {
-
-    }
 }
