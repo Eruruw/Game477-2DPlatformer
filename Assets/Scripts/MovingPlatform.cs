@@ -34,7 +34,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            if (transform.position.y < collision.transform.position.y - 0.5f)
+            if (transform.position.y < collision.transform.position.y - 0.6f)
             {
             }
             collision.transform.SetParent(transform);
