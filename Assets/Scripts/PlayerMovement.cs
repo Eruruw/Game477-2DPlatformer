@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private GameObject attackArea = default;
+    private float attackCD = 0.25f;
+    private float attackTime = 0f;
     private float horizontal;
     private bool doubleJump;
     private bool isSprinting;
+    private bool isAttacking = false;
     private bool isSliding = false;
     private bool isFacingRight = true;
 
@@ -14,63 +18,72 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpingPower = 18f;
     [SerializeField] private float slideSpeed = 600f;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private ProjectileBehavior projectilePrefab;
+    [SerializeField] private ProjectileBehavior launchableProjectilePrefab;
+    [SerializeField] private Transform launchOffset;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private BoxCollider2D regularColl;
     [SerializeField] private BoxCollider2D slideColl;
 
-    private void Update()
-    {
+    private void Start() {
+        attackArea = transform.GetChild(0).gameObject;
+    }
+
+    private void Update() {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (IsGrounded() && !Input.GetKey(KeyCode.Z))
-        {
+        if (IsGrounded() && !Input.GetKey(KeyCode.Z)) {
             doubleJump = false;
         }
-        if (Input.GetKeyDown(KeyCode.Z) && !Input.GetKey(KeyCode.DownArrow))
-        {
-            if (IsGrounded() || doubleJump)
-            {
+        if (Input.GetKeyDown(KeyCode.Z) && !Input.GetKey(KeyCode.DownArrow)) {
+            if (IsGrounded() || doubleJump) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 doubleJump = !doubleJump;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Z) && rb.velocity.y > 0f)
-        {
+        if (Input.GetKeyUp(KeyCode.Z) && rb.velocity.y > 0f) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
         if (Input.GetKeyDown(KeyCode.X) && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || isSprinting)) {
-            Debug.Log("Neutral Attack");
+            NeutralAttack();
         }
         if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting)) {
-            Debug.Log("Up Attack");
+            Instantiate(launchableProjectilePrefab, launchOffset.position, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting)) {
-            Debug.Log("Down Attack");
+            Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
         }
 
-        if (IsGrounded() && !isSliding && Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.Z)) {
+        if (IsGrounded() && !isAttacking && !isSliding && Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.Z)) {
             Slide();
         }
 
-        if (IsGrounded() && !isSliding && Input.GetKey(KeyCode.A))
-        {
+        if (IsGrounded() && !isSliding && Input.GetKey(KeyCode.A)) {
             Backdash();
         }
 
-        if (Input.GetKey(KeyCode.S)) {
+        if (!isAttacking && Input.GetKey(KeyCode.S)) {
             isSprinting = true;
         }
         else {
             isSprinting = false;
         }
 
+        if (isAttacking) {
+            attackTime += Time.deltaTime;
+            if (attackTime >= attackCD) {
+                attackTime = 0;
+                isAttacking = false;
+                attackArea.SetActive(isAttacking);
+            }
+        }
+
         Flip();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         if (!isSliding) {
             if (!isSprinting) {
                 rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
@@ -81,20 +94,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
-    {
+    private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
+    private void Flip() {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) {
             Vector3 localScale = transform.localScale;
             isFacingRight = !isFacingRight;
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    private void NeutralAttack() {
+        isAttacking = true;
+        attackArea.SetActive(isAttacking);
     }
 
     private void Slide() {
@@ -112,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     IEnumerator stopSlide() {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         isSliding = false;
         regularColl.enabled = true;
         slideColl.enabled = false;
@@ -122,16 +137,16 @@ public class PlayerMovement : MonoBehaviour
         isSliding = true;
         rb.velocity = new Vector2(0, rb.velocity.y);
         if (isFacingRight) {
-            rb.AddForce(Vector2.left * slideSpeed);
+            rb.AddForce(Vector2.left * (slideSpeed + 100f));
         }
         else {
-            rb.AddForce(Vector2.right * slideSpeed);
+            rb.AddForce(Vector2.right * (slideSpeed + 100f));
         }
         StartCoroutine("stopDash");
     }
 
     IEnumerator stopDash() {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         isSliding = false;
     }
 }
