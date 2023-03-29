@@ -23,6 +23,7 @@ public class EnemyStateMachine : MonoBehaviour {
   public Transform tfPlayer;
   public float distFromPlayer = 3;
   public float speedInc = 50;
+  public float patrolRange = 5;
 
   // private fields
   private Dictionary<State, Action> stateEnterMeths;
@@ -115,10 +116,10 @@ public class EnemyStateMachine : MonoBehaviour {
     StartCoroutine(WaitThenJump());
   }
   private void StateEnterPatrolLeft() {
-    xTarget = transform.position.x - 5;
+    xTarget = transform.position.x - patrolRange;
   }
   private void StateEnterPatrolRight() {
-    xTarget = transform.position.x + 5;
+    xTarget = transform.position.x + patrolRange;
   }
   private void StateEnterRunAway() {
 
@@ -145,19 +146,19 @@ public class EnemyStateMachine : MonoBehaviour {
       jump = false;
       //animator.SetFloat("Idle Run", 1);
     }
-    Debug.Log("I am patrolling left!");
+    //Debug.Log("I am patrolling left!");
   }
   private void StateStayPatrolRight() {
     if (transform.position.x >= xTarget) {
       ChangeState(State.PATROL_LEFT);
     }
     else {
-      Debug.Log(jump);
+      //Debug.Log(jump);
       charCon.Move(speed * Time.fixedDeltaTime, false, jump);
       jump = false;
       //animator.SetFloat("Idle Run", 1);
     }
-    Debug.Log("I am patrolling right!");
+    //Debug.Log("I am patrolling right!");
   }
   private void StateStayRunAway() {
     if (Mathf.Abs(transform.position.x - tfPlayer.position.x) > distFromPlayer) {
@@ -168,13 +169,13 @@ public class EnemyStateMachine : MonoBehaviour {
       jump = false;
       //animator.SetFloat("Idle Run", 1);
     }
-    Debug.Log("I am patrolling running away!");
+    //Debug.Log("I am patrolling running away!");
   }
   private void StateStayIdle() {
     if (charCon.IsPlayerOnGround()) {
       ChangeState(State.RUN_AWAY);
     }
-    Debug.Log("I am staying idle!");
+    //Debug.Log("I am staying idle!");
   }
   #endregion
   #endregion

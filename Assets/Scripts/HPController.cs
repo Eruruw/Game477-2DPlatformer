@@ -15,11 +15,11 @@ public class HPController : MonoBehaviour
     bool CD;
     bool IsStillKickinIt;
 
-    void TakeDamageFromWeapon(WC.Weapon weapon)
+    void TakeDamageFromWeapon(Weapon weapon)
     {
         switch (weapon)
         {
-            case WC.Weapon.Whip:
+            case Weapon.Whip:
                 if (CurrentHP - WC.WhipDamage <= 0)
                 {
                     CurrentHP = 0;
@@ -37,7 +37,7 @@ public class HPController : MonoBehaviour
     }
 
     // Need to subtract item from inventory
-    void HealHPFromItem(IC.Item item)
+    void HealHPFromItem(Item item)
     {
         if (CurrentHP == HPCap || !IsStillKickinIt)
         {
@@ -46,7 +46,7 @@ public class HPController : MonoBehaviour
         }
         switch (item)
         {
-            case IC.Item.HPPotion: 
+            case Item.HPPotion: 
                 if (CurrentHP + IC.HPPotion_HealAmount > HPCap) 
                 {
                     CurrentHP = HPCap;
@@ -71,19 +71,21 @@ public class HPController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* TEST CODE       
         if (Input.GetKeyDown("0"))
         {
             if (!CD)
             {
-                TakeDamageFromWeapon(WC.Weapon.Whip);
+                TakeDamageFromWeapon(Weapon.Whip);
                 StartCoroutine(DamageCD());
                 Debug.Log("OOh ouch! - The Bastard");
             }
         }
         if (Input.GetKeyDown("9"))
         {
-            HealHPFromItem(IC.Item.HPPotion);
+            HealHPFromItem(Item.HPPotion);
         }
+        */
     }
 
     IEnumerator DamageCD()
