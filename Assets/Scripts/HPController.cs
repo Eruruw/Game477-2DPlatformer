@@ -8,7 +8,7 @@ public class HPController : MonoBehaviour
 {
     public int CurrentHP;
     public int HPCap;
-    public float DeathDuration = 5f;
+    public float DeathDuration = 3f;
 
     WC wc;
     IC ic;
@@ -44,6 +44,19 @@ public class HPController : MonoBehaviour
                 else
                 {
                     CurrentHP -= WC.FireballDamage;
+                }
+                break;
+            case Weapon.HolyWater:
+                if (CurrentHP - WC.HolyWaterDamage <= 0)
+                {
+                    CurrentHP = 0;
+                    IsStillKickinIt = false;
+                    GetComponent<EnemyStateMachine>().enabled = false;
+                    StartCoroutine(Tragedy());
+                }
+                else
+                {
+                    CurrentHP -= WC.HolyWaterDamage;
                 }
                 break;
             default:

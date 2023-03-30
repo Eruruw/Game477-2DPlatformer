@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246472875813100287}
+  - component: {fileID: 3641230630439088980}
   - component: {fileID: 806387868029063877}
   - component: {fileID: 6226552316975688466}
   - component: {fileID: 4174357287455649428}
   m_Layer: 6
   m_Name: DownProj
-  m_TagString: Projectile
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,6 +36,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3641230630439088980
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425528225662296124}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!58 &806387868029063877
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -86,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   launchOffset: {x: 0, y: 0, z: 0}
-  thrown: 1
+  thrown: 0
 --- !u!1001 &6342481070007001865
 PrefabInstance:
   m_ObjectHideFlags: 0

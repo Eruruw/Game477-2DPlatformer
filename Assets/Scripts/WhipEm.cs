@@ -8,15 +8,20 @@ public class WhipEm : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "whip")
+        if (other.gameObject.tag == "Whip")
         {
             Debug.Log("Whipped em");
             HPCon.TakeDamageFromWeapon(Weapon.Whip);
         }
-        if (other.gameObject.tag == "Projectile")
+        if (other.gameObject.tag == "Fire")
         {
             Debug.Log("Popped em");
             HPCon.TakeDamageFromWeapon(Weapon.Fireball);
+        }
+        if (other.gameObject.tag == "Holy")
+        {
+            Debug.Log("Purified em");
+            HPCon.TakeDamageFromWeapon(Weapon.HolyWater);
         }
     }
 
