@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding = false;
     private bool isFacingRight = true;
 
-    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpingPower = 18f;
     [SerializeField] private float slideSpeed = 600f;
     [SerializeField] private Rigidbody2D rb;
