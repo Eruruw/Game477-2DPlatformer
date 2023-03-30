@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     HPController HPCon;
     AudioSource whipit;
+    public TextMeshProUGUI Health;
+    public TextMeshProUGUI Ammo;
     public float ammo = 0f;
+    private float hp = 20f;
     private GameObject attackArea = default;
     private float attackCD = 0.25f;
     private float attackTime = 0f;
@@ -33,10 +37,13 @@ public class PlayerMovement : MonoBehaviour
         attackArea = transform.GetChild(0).gameObject;
         HPCon = GetComponent<HPController>();
         whipit = GetComponent<AudioSource>();
+        Health.text = hp.ToString();
     }
 
     private void Update()
     {
+        Ammo.text = ammo.ToString();
+
         if (HPCon.IsStillKickinIt)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -180,12 +187,14 @@ public class PlayerMovement : MonoBehaviour
         isSliding = false;
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Ouch");
             HPCon.TakeDamageFromWeapon(Weapon.Enemy);
+            hp -= 1f;
+            Health.text = hp.ToString();
         }
     }
 }
