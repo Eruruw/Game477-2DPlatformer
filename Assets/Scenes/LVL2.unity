@@ -8878,6 +8878,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519769207}
     m_Modifications:
+    - target: {fileID: 2184698037941815869, guid: 99f6872f22edc4bf38b08fba53f0c8ab, type: 3}
+      propertyPath: patrolRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5160817584137792185, guid: 99f6872f22edc4bf38b08fba53f0c8ab, type: 3}
       propertyPath: m_Name
       value: Enemy (12)
