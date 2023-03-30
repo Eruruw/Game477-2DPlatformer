@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb9176840cea487ebdf8fd6e23f3f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHP: 10
-  HPCap: 10
+  CurrentHP: 20
+  HPCap: 20
   DeathDuration: 3
   IsStillKickinIt: 0
 --- !u!1 &328917457407970307
