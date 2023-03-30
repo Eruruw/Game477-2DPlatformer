@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using WC = TempWeaponController;
 using IC = ItemController;
 
@@ -59,6 +60,18 @@ public class HPController : MonoBehaviour
                     CurrentHP -= WC.HolyWaterDamage;
                 }
                 break;
+            case Weapon.Enemy:
+                if (CurrentHP - WC.EnemyDamage <= 0)
+                {
+                    CurrentHP = 0;
+                    IsStillKickinIt = false;
+                    StartCoroutine(Tragedy());
+                }
+                else
+                {
+                    CurrentHP -= WC.EnemyDamage;
+                }
+                break;
             default:
                 break;
         }
@@ -69,6 +82,9 @@ public class HPController : MonoBehaviour
         Debug.Log("Currently dying");
         yield return new WaitForSeconds(DeathDuration);
         Debug.Log("Dead");
+        if (gameObject.tag == "Player") {
+            SceneManager.LoadScene("Start Scene");
+        }
         Destroy(gameObject);
     }
 

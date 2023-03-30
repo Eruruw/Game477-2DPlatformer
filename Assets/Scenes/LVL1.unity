@@ -24338,6 +24338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 68383009870339073, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 1.2658155
+      objectReference: {fileID: 0}
     - target: {fileID: 328917457268446068, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -24389,6 +24393,14 @@ PrefabInstance:
     - target: {fileID: 328917457407970307, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
       propertyPath: m_TagString
       value: Whip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515620181390794007, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
+      propertyPath: HPCap
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515620181390794007, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
+      propertyPath: CurrentHP
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}

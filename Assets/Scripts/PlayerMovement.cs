@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    HPController HPCon;
     public float ammo = 0f;
     private GameObject attackArea = default;
     private float attackCD = 0.25f;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() {
         attackArea = transform.GetChild(0).gameObject;
+        HPCon = GetComponent<HPController>();
     }
 
     private void Update() {
@@ -151,5 +153,14 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator stopDash() {
         yield return new WaitForSeconds(0.5f);
         isSliding = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Ouch");
+            HPCon.TakeDamageFromWeapon(Weapon.Enemy);
+        }
     }
 }
