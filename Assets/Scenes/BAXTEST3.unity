@@ -10971,7 +10971,6 @@ GameObject:
   - component: {fileID: 1097446461}
   - component: {fileID: 1097446462}
   - component: {fileID: 1097446466}
-  - component: {fileID: 1097446467}
   m_Layer: 0
   m_Name: AttackArea
   m_TagString: whip
@@ -11044,18 +11043,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1097446467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097446460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cfc576e9cedc4758b6fc7fb41d004d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1123900558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14242,6 +14229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHP: 10
   HPCap: 10
+  DeathDuration: 5
 --- !u!1 &1522314945
 GameObject:
   m_ObjectHideFlags: 0
