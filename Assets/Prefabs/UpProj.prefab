@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3161130559215850103}
   - component: {fileID: 3161130559215850088}
   - component: {fileID: 3161130559215850101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UpProj
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,10 @@ PrefabInstance:
     - target: {fileID: 577669244621560140, guid: debe55fb92b156f44aaa4bb8349787b2, type: 3}
       propertyPath: m_Name
       value: Holy Flask
+      objectReference: {fileID: 0}
+    - target: {fileID: 577669244621560140, guid: debe55fb92b156f44aaa4bb8349787b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3795102948394351962, guid: debe55fb92b156f44aaa4bb8349787b2, type: 3}
       propertyPath: m_RootOrder

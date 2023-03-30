@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float ammo = 0f;
     private GameObject attackArea = default;
     private float attackCD = 0.25f;
     private float attackTime = 0f;
@@ -49,11 +50,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || isSprinting)) {
             NeutralAttack();
         }
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting)) {
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting) && (ammo >= 4)) {
             Instantiate(launchableProjectilePrefab, launchOffset.position, transform.rotation);
+            ammo -= 4;
         }
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting)) {
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting) && (ammo >= 2)) {
             Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
+            ammo -= 2;
         }
 
         if (IsGrounded() && !isAttacking && !isSliding && Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.Z)) {
@@ -99,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Flip() {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) {
+        if ((isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) && !isSliding) {
             Vector3 localScale = transform.localScale;
             isFacingRight = !isFacingRight;
             localScale.x *= -1f;
