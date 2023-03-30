@@ -24499,6 +24499,10 @@ PrefabInstance:
       propertyPath: CurrentHP
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8496456805714833178, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
 --- !u!1001 &1726993565
