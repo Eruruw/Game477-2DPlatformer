@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2913180955484409286}
   - component: {fileID: 2184698037941815869}
   - component: {fileID: 7844464305038494010}
+  - component: {fileID: 4737450702851632712}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -197,3 +198,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHP: 1
   HPCap: 1
+  DeathDuration: 5
+--- !u!114 &4737450702851632712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160817584137792185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfc576e9cedc4758b6fc7fb41d004d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

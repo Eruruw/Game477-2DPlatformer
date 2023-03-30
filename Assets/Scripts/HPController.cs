@@ -8,6 +8,7 @@ public class HPController : MonoBehaviour
 {
     public int CurrentHP;
     public int HPCap;
+    public float DeathDuration = 5f;
 
     WC wc;
     IC ic;
@@ -15,7 +16,7 @@ public class HPController : MonoBehaviour
     bool CD;
     bool IsStillKickinIt;
 
-    void TakeDamageFromWeapon(Weapon weapon)
+    public void TakeDamageFromWeapon(Weapon weapon)
     {
         switch (weapon)
         {
@@ -24,7 +25,8 @@ public class HPController : MonoBehaviour
                 {
                     CurrentHP = 0;
                     IsStillKickinIt = false;
-                    Debug.Log("Tragic");
+                    GetComponent<EnemyStateMachine>().enabled = false;
+                    StartCoroutine(Tragedy());
                 }
                 else
                 {
@@ -36,6 +38,15 @@ public class HPController : MonoBehaviour
         }
     }
 
+    IEnumerator Tragedy()
+    {
+        Debug.Log("Currently dying");
+        yield return new WaitForSeconds(DeathDuration);
+        Debug.Log("Dead");
+        Destroy(gameObject);
+    }
+
+    // lol
     // Need to subtract item from inventory
     void HealHPFromItem(Item item)
     {
@@ -64,34 +75,6 @@ public class HPController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CD = false;
         IsStillKickinIt = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /* TEST CODE       
-        if (Input.GetKeyDown("0"))
-        {
-            if (!CD)
-            {
-                TakeDamageFromWeapon(Weapon.Whip);
-                StartCoroutine(DamageCD());
-                Debug.Log("OOh ouch! - The Bastard");
-            }
-        }
-        if (Input.GetKeyDown("9"))
-        {
-            HealHPFromItem(Item.HPPotion);
-        }
-        */
-    }
-
-    IEnumerator DamageCD()
-    {
-        CD = true;
-        yield return new WaitForSeconds(3);
-        CD = false;
     }
 }
