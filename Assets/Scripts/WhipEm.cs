@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class WhipEm : MonoBehaviour
 {
+    HPController HPCon;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "whip")
         {
             Debug.Log("Whipped em");
+            HPCon.TakeDamageFromWeapon(Weapon.Whip);
         }
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("didnt whip em but touched em");
-        }
+    }
+
+    void Start()
+    {
+        HPCon = GetComponent<HPController>();
     }
 }
