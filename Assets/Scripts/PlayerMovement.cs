@@ -50,13 +50,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || isSprinting)) {
             NeutralAttack();
         }
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting) && (ammo >= 4)) {
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting) && (ammo >= 2)) {
             Instantiate(launchableProjectilePrefab, launchOffset.position, transform.rotation);
-            ammo -= 4;
-        }
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting) && (ammo >= 2)) {
-            Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
             ammo -= 2;
+        }
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting) && (ammo >= 1)) {
+            Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
+            ammo -= 1;
         }
 
         if (IsGrounded() && !isAttacking && !isSliding && Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.Z)) {
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             Backdash();
         }
 
-        if (!isAttacking && Input.GetKey(KeyCode.S)) {
+        if (!isAttacking && Input.GetKey(KeyCode.LeftShift)) {
             isSprinting = true;
         }
         else {

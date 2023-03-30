@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Projectile
-  - whip
+  - Whip
+  - Fire
+  - Holy
   layers:
   - Default
   - TransparentFX
