@@ -13,6 +13,11 @@ public class WhipEm : MonoBehaviour
             Debug.Log("Whipped em");
             HPCon.TakeDamageFromWeapon(Weapon.Whip);
         }
+        if (other.gameObject.tag == "Projectile")
+        {
+            Debug.Log("Popped em");
+            HPCon.TakeDamageFromWeapon(Weapon.Fireball);
+        }
     }
 
     void Start()
