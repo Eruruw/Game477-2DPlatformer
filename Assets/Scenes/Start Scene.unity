@@ -1167,6 +1167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 680896972}
     m_Modifications:
+    - target: {fileID: 457297536647326853, guid: 68e62e610923be7409e3a58ba7d9443d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6815993458936481998, guid: 68e62e610923be7409e3a58ba7d9443d, type: 3}
       propertyPath: m_Name
       value: Luigi Parts
