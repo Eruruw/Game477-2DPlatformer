@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Luigi Level_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 432
+        width: 629
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb25f92ef6909f4dbbdeb57a1161462
+      internalID: 392430136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_1
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 786
+        width: 337
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3010de299817d5a4e8351bd9f3905cfd
+      internalID: 1841544135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_2
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 587
+        width: 309
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1c309e44a4d78408f45d7cda46f780
+      internalID: 1636221008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_3
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 408
+        width: 47
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e707da59825ecac4faf96a86fdc26cd5
+      internalID: -1469262886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_4
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 436
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d274a1808cebc61469ac3bbd3b1b7c32
+      internalID: 1846698860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_5
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 427
+        width: 46
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95da3fb24f412f44ae8b4c7a1107161
+      internalID: -1750541825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_6
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 407
+        width: 43
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cb620cb0f5ecf43bdc8c069d931b31
+      internalID: 675072552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_7
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 327
+        width: 642
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f844c1b0b941d84d94e9c0fd14ca861
+      internalID: -687485442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 268
+        width: 643
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd588131eb558e4dabac6daac9bf3e2
+      internalID: -1803061172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_9
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 25
+        width: 230
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ea716d3941201458a795832b3c339c
+      internalID: 1585468490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luigi Level_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 12
+        width: 676
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a123cc93ef80b46aa9640b8c587994
+      internalID: 278027516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +357,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Luigi Level_0: 392430136
+      Luigi Level_1: 1841544135
+      Luigi Level_10: 278027516
+      Luigi Level_2: 1636221008
+      Luigi Level_3: -1469262886
+      Luigi Level_4: 1846698860
+      Luigi Level_5: -1750541825
+      Luigi Level_6: 675072552
+      Luigi Level_7: -687485442
+      Luigi Level_8: -1803061172
+      Luigi Level_9: 1585468490
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
