@@ -68,30 +68,22 @@ public class HPController : MonoBehaviour
         IsStillKickinIt = true;
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy" && this.tag == "whip")
+        {
+            Debug.Log("Ahh fuck ouchie ooh ouch");
+            //TakeDamageFromWeapon(Weapon.Whip);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        /* TEST CODE       
-        if (Input.GetKeyDown("0"))
+        if (!IsStillKickinIt)
         {
-            if (!CD)
-            {
-                TakeDamageFromWeapon(Weapon.Whip);
-                StartCoroutine(DamageCD());
-                Debug.Log("OOh ouch! - The Bastard");
-            }
+            Destroy(gameObject);
         }
-        if (Input.GetKeyDown("9"))
-        {
-            HealHPFromItem(Item.HPPotion);
-        }
-        */
     }
 
-    IEnumerator DamageCD()
-    {
-        CD = true;
-        yield return new WaitForSeconds(3);
-        CD = false;
-    }
 }
