@@ -10,12 +10,12 @@ public class HPController : MonoBehaviour
     public int CurrentHP;
     public int HPCap;
     public float DeathDuration = 3f;
+    public bool IsStillKickinIt;
 
     WC wc;
     IC ic;
 
     bool CD;
-    bool IsStillKickinIt;
 
     public void TakeDamageFromWeapon(Weapon weapon)
     {

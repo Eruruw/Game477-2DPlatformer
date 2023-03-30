@@ -33,59 +33,80 @@ public class PlayerMovement : MonoBehaviour
         HPCon = GetComponent<HPController>();
     }
 
-    private void Update() {
-        horizontal = Input.GetAxisRaw("Horizontal");
+    private void Update()
+    {
+        if (HPCon.IsStillKickinIt)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (IsGrounded() && !Input.GetKey(KeyCode.Z)) {
-            doubleJump = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Z) && !Input.GetKey(KeyCode.DownArrow)) {
-            if (IsGrounded() || doubleJump) {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                doubleJump = !doubleJump;
+            if (IsGrounded() && !Input.GetKey(KeyCode.Z))
+            {
+                doubleJump = false;
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Z) && rb.velocity.y > 0f) {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X) && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || isSprinting)) {
-            NeutralAttack();
-        }
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting) && (ammo >= 2)) {
-            Instantiate(launchableProjectilePrefab, launchOffset.position, transform.rotation);
-            ammo -= 2;
-        }
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting) && (ammo >= 1)) {
-            Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
-            ammo -= 1;
-        }
-
-        if (IsGrounded() && !isAttacking && !isSliding && Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.Z)) {
-            Slide();
-        }
-
-        if (IsGrounded() && !isSliding && Input.GetKey(KeyCode.A)) {
-            Backdash();
-        }
-
-        if (!isAttacking && Input.GetKey(KeyCode.LeftShift)) {
-            isSprinting = true;
-        }
-        else {
-            isSprinting = false;
-        }
-
-        if (isAttacking) {
-            attackTime += Time.deltaTime;
-            if (attackTime >= attackCD) {
-                attackTime = 0;
-                isAttacking = false;
-                attackArea.SetActive(isAttacking);
+            if (Input.GetKeyDown(KeyCode.Z) && !Input.GetKey(KeyCode.DownArrow))
+            {
+                if (IsGrounded() || doubleJump)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                    doubleJump = !doubleJump;
+                }
             }
-        }
+            if (Input.GetKeyUp(KeyCode.Z) && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
 
-        Flip();
+            if (Input.GetKeyDown(KeyCode.X) && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || isSprinting))
+            {
+                NeutralAttack();
+            }
+            if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow) && !(Input.GetKey(KeyCode.DownArrow) || isSprinting) && (ammo >= 2))
+            {
+                Instantiate(launchableProjectilePrefab, launchOffset.position, transform.rotation);
+                ammo -= 2;
+            }
+            if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow) && !(Input.GetKey(KeyCode.UpArrow) || isSprinting) && (ammo >= 1))
+            {
+                Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
+                ammo -= 1;
+            }
+
+            if (IsGrounded() && !isAttacking && !isSliding && Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.Z))
+            {
+                Slide();
+            }
+
+            if (IsGrounded() && !isSliding && Input.GetKey(KeyCode.A))
+            {
+                Backdash();
+            }
+
+            if (!isAttacking && Input.GetKey(KeyCode.LeftShift))
+            {
+                isSprinting = true;
+            }
+            else
+            {
+                isSprinting = false;
+            }
+
+            if (isAttacking)
+            {
+                attackTime += Time.deltaTime;
+                if (attackTime >= attackCD)
+                {
+                    attackTime = 0;
+                    isAttacking = false;
+                    attackArea.SetActive(isAttacking);
+                }
+            }
+
+            Flip();
+        }
+        else
+        {
+            moveSpeed = 0f;
+        }
     }
 
     private void FixedUpdate() {
