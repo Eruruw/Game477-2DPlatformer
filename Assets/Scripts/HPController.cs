@@ -80,6 +80,7 @@ public class HPController : MonoBehaviour
     IEnumerator Tragedy()
     {
         Debug.Log("Currently dying");
+        gameObject.tag = "Untagged";
         yield return new WaitForSeconds(DeathDuration);
         Debug.Log("Dead");
         if (gameObject.tag == "Player") {
