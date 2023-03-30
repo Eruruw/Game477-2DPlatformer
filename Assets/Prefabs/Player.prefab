@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 0
-  moveSpeed: 6
+  moveSpeed: 8
   jumpingPower: 18
   slideSpeed: 600
   rb: {fileID: 328917457268446066}

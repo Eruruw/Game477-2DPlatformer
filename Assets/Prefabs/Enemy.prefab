@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2913180955484409286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,10 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fabcc1f2ea94b61be96fa1f772a8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 20
   tfPlayer: {fileID: 5774995291842163252, guid: 8c3a8ae4981e21f438cde1cae3723782, type: 3}
   distFromPlayer: 3
-  speedInc: 50
+  speedInc: 20
   patrolRange: 5
 --- !u!114 &7844464305038494010
 MonoBehaviour:
