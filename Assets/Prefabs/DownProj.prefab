@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 806387868029063877}
   - component: {fileID: 6226552316975688466}
   - component: {fileID: 4174357287455649428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DownProj
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +206,10 @@ PrefabInstance:
     - target: {fileID: 2357511492958537795, guid: 33a8f4c4a8b727c4887320fe445ded76, type: 3}
       propertyPath: m_Name
       value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357511492958537795, guid: 33a8f4c4a8b727c4887320fe445ded76, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9004804665012470319, guid: 33a8f4c4a8b727c4887320fe445ded76, type: 3}
       propertyPath: m_SortingOrder

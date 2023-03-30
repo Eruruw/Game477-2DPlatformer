@@ -10970,7 +10970,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1097446461}
   - component: {fileID: 1097446462}
-  - component: {fileID: 1097446465}
   - component: {fileID: 1097446466}
   m_Layer: 0
   m_Name: AttackArea
@@ -11023,18 +11022,6 @@ PolygonCollider2D:
       - {x: 3, y: 1}
       - {x: 3, y: -1}
       - {x: 0.5, y: -0.5}
---- !u!114 &1097446465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097446460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cfc576e9cedc4758b6fc7fb41d004d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1097446466
 Rigidbody2D:
   serializedVersion: 4
@@ -14242,6 +14229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHP: 10
   HPCap: 10
+  DeathDuration: 5
 --- !u!1 &1522314945
 GameObject:
   m_ObjectHideFlags: 0
@@ -15775,6 +15763,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1687037156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5160817584137792185, guid: 99f6872f22edc4bf38b08fba53f0c8ab, type: 3}
+  m_PrefabInstance: {fileID: 400624141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1687037163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687037156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfc576e9cedc4758b6fc7fb41d004d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1688072311
 GameObject:
   m_ObjectHideFlags: 0

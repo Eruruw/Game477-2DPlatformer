@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5774995290265129658}
   - component: {fileID: 5774995290265129656}
   - component: {fileID: 5774995290265129657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SlideColl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5774995291434025854}
   - component: {fileID: 5774995291434025853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5774995291842163249}
   - component: {fileID: 5774995291842163250}
   - component: {fileID: 5774995291842163251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,6 +321,9 @@ MonoBehaviour:
   jumpingPower: 18
   slideSpeed: 600
   rb: {fileID: 5774995291842163250}
+  projectilePrefab: {fileID: 0}
+  launchableProjectilePrefab: {fileID: 0}
+  launchOffset: {fileID: 0}
   groundCheck: {fileID: 5774995291434025854}
   groundLayer:
     serializedVersion: 2
