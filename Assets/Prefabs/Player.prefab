@@ -365,6 +365,7 @@ MonoBehaviour:
   CurrentHP: 10
   HPCap: 10
   DeathDuration: 3
+  IsStillKickinIt: 0
 --- !u!1 &328917457407970307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,8 +1726,8 @@ MonoBehaviour:
   - {fileID: 8421526335260730930}
   - {fileID: 2245570986653424267}
   m_Bounds:
-    m_Center: {x: 0.30135417, y: -0.4142766, z: 0}
-    m_Extent: {x: 1.2658157, y: 1.2402582, z: 0}
+    m_Center: {x: 0.30135417, y: -0.41427684, z: 0}
+    m_Extent: {x: 1.2658155, y: 1.2402582, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1774,10 +1775,10 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 60.3125
+        x: 76.3125
         y: 199.67188
         width: 100
-        height: 80
+        height: 96
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -1818,6 +1819,15 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 0
+      - fsmEvent:
+          name: Die
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Die
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetKeyDown
@@ -1830,6 +1840,8 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.SetAnimatorBool
         - HutongGames.PlayMaker.Actions.SetAnimatorBool
         - HutongGames.PlayMaker.Actions.SetAnimatorBool
+        - HutongGames.PlayMaker.Actions.GetProperty
+        - HutongGames.PlayMaker.Actions.IntCompare
         customNames:
         - 
         - 
@@ -1841,10 +1853,12 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 01010101010101010101
-        actionIsOpen: 00000101010101010101
-        actionStartIndex: 000000000300000006000000090000000c0000000f00000014000000190000001e00000023000000
-        actionHashCodes: ff77a904ff77a904ff77a904ff77a904ff77a9045f9135045f9135045f9135045f9135045f913504
+        - 
+        - 
+        actionEnabled: 010101010101010101010101
+        actionIsOpen: 000001010101010101010101
+        actionStartIndex: 000000000300000006000000090000000c0000000f00000014000000190000001e00000023000000280000002a000000
+        actionHashCodes: ff77a904ff77a904ff77a904ff77a904ff77a9045f9135045f9135045f9135045f9135045f9135045ac8520409faa102
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1892,7 +1906,139 @@ MonoBehaviour:
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 3515620181390794007}
+          TargetTypeName: HPController
+          PropertyName: CurrentHP
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 1
+            name: Health
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.Int32
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 0
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 0
@@ -1930,7 +2076,19 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
-        fsmIntParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: Health
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         fsmBoolParams:
         - useVariable: 1
           name: 
@@ -2003,12 +2161,15 @@ MonoBehaviour:
         - Attack
         - Backdash
         - Jump
-        byteData: 130100001401000078000000610000007a00000000000000000000000000000000000000000000000000000000
+        - 
+        - Die
+        - 
+        byteData: 130100001401000078000000610000007a000000000000000000000000000000000000000000000000000000000101
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 07000000170000001100000007000000170000001100000007000000170000001100000007000000170000001100000007000000170000001100000014000000120000001100000001000000070000001400000012000000110000000100000007000000140000001200000011000000010000000700000014000000120000001100000001000000070000001400000012000000110000000100000007000000
+        paramDataType: 070000001700000011000000070000001700000011000000070000001700000011000000070000001700000011000000070000001700000011000000140000001200000011000000010000000700000014000000120000001100000001000000070000001400000012000000110000000100000007000000140000001200000011000000010000000700000014000000120000001100000001000000070000002400000001000000100000001000000017000000170000001700000001000000
         paramName:
         - key
         - sendEvent
@@ -2050,17 +2211,25 @@ MonoBehaviour:
         - Value
         - everyFrame
         - everyFrameOption
-        paramDataPos: 0000000000000000000000000400000001000000010000000800000002000000020000000c00000003000000030000001000000004000000040000000000000000000000050000001400000015000000010000000100000006000000190000001a0000000200000002000000070000001e0000001f00000003000000030000000800000023000000240000000400000004000000090000002800000029000000
-        paramByteDataSize: 04000000000000000000000004000000000000000000000004000000000000000000000004000000000000000000000004000000000000000000000000000000000000000000000001000000040000000000000000000000000000000100000004000000000000000000000000000000010000000400000000000000000000000000000001000000040000000000000000000000000000000100000004000000
+        - targetProperty
+        - everyFrame
+        - integer1
+        - integer2
+        - equal
+        - lessThan
+        - greaterThan
+        - everyFrame
+        paramDataPos: 0000000000000000000000000400000001000000010000000800000002000000020000000c00000003000000030000001000000004000000040000000000000000000000050000001400000015000000010000000100000006000000190000001a0000000200000002000000070000001e0000001f00000003000000030000000800000023000000240000000400000004000000090000002800000029000000000000002d00000000000000010000000500000006000000070000002e000000
+        paramByteDataSize: 040000000000000000000000040000000000000000000000040000000000000000000000040000000000000000000000040000000000000000000000000000000000000000000000010000000400000000000000000000000000000001000000040000000000000000000000000000000100000004000000000000000000000000000000010000000400000000000000000000000000000001000000040000000000000001000000000000000000000000000000000000000000000001000000
     - name: IsWalking
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 416.03125
+        x: 432.03125
         y: 183.32812
         width: 100
-        height: 64
+        height: 80
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -2092,6 +2261,15 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 0
+      - fsmEvent:
+          name: Die
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Die
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetAnimatorBool
@@ -2101,6 +2279,8 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.GetKeyUp
         - HutongGames.PlayMaker.Actions.GetKeyDown
         - HutongGames.PlayMaker.Actions.GetKeyDown
+        - HutongGames.PlayMaker.Actions.GetProperty
+        - HutongGames.PlayMaker.Actions.IntCompare
         customNames:
         - 
         - 
@@ -2109,10 +2289,12 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 01010101010101
-        actionIsOpen: 01010100000101
-        actionStartIndex: 00000000050000000a0000000f000000120000001500000018000000
-        actionHashCodes: 5f9135045f9135045f913504ff77a904ff77a904ff77a904ff77a904
+        - 
+        - 
+        actionEnabled: 010101010101010101
+        actionIsOpen: 010101000001010101
+        actionStartIndex: 00000000050000000a0000000f0000001200000015000000180000001b0000001d000000
+        actionHashCodes: 5f9135045f9135045f913504ff77a904ff77a904ff77a904ff77a9045ac8520409faa102
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -2144,7 +2326,139 @@ MonoBehaviour:
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 3515620181390794007}
+          TargetTypeName: HPController
+          PropertyName: CurrentHP
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 1
+            name: Health
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.Int32
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 0
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 0
@@ -2170,7 +2484,19 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
-        fsmIntParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: Health
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         fsmBoolParams:
         - useVariable: 0
           name: 
@@ -2224,12 +2550,15 @@ MonoBehaviour:
         - Idle
         - Jump
         - Attack
-        byteData: 00000000000000000000000000000013010000140100007a00000078000000
+        - 
+        - Die
+        - 
+        byteData: 00000000000000000000000000000013010000140100007a000000780000000101
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000011000000010000000700000014000000120000001100000001000000070000001400000012000000110000000100000007000000070000001700000011000000070000001700000011000000070000001700000011000000070000001700000011000000
+        paramDataType: 1400000012000000110000000100000007000000140000001200000011000000010000000700000014000000120000001100000001000000070000000700000017000000110000000700000017000000110000000700000017000000110000000700000017000000110000002400000001000000100000001000000017000000170000001700000001000000
         paramName:
         - gameObject
         - parameter
@@ -2258,14 +2587,22 @@ MonoBehaviour:
         - key
         - sendEvent
         - storeResult
-        paramDataPos: 000000000000000000000000000000000100000001000000010000000100000005000000060000000200000002000000020000000a0000000b0000000f00000000000000030000001300000001000000040000001700000002000000050000001b0000000300000006000000
-        paramByteDataSize: 000000000000000000000000010000000400000000000000000000000000000001000000040000000000000000000000000000000100000004000000040000000000000000000000040000000000000000000000040000000000000000000000040000000000000000000000
+        - targetProperty
+        - everyFrame
+        - integer1
+        - integer2
+        - equal
+        - lessThan
+        - greaterThan
+        - everyFrame
+        paramDataPos: 000000000000000000000000000000000100000001000000010000000100000005000000060000000200000002000000020000000a0000000b0000000f00000000000000030000001300000001000000040000001700000002000000050000001b0000000300000006000000000000001f000000000000000100000004000000050000000600000020000000
+        paramByteDataSize: 0000000000000000000000000100000004000000000000000000000000000000010000000400000000000000000000000000000001000000040000000400000000000000000000000400000000000000000000000400000000000000000000000400000000000000000000000000000001000000000000000000000000000000000000000000000001000000
     - name: Jump
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 357.40625
+        x: 373.40625
         y: 378.42188
         width: 100
         height: 48
@@ -2464,7 +2801,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 280.17188
+        x: 296.17188
         y: 55.203125
         width: 100
         height: 32
@@ -2555,7 +2892,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 67.96875
+        x: 83.96875
         y: 438.1797
         width: 100
         height: 48
@@ -2737,6 +3074,85 @@ MonoBehaviour:
         - realTime
         paramDataPos: 000000000000000000000000000000000100000001000000010000000100000005000000060000000200000002000000020000000a0000000b0000000f0000000000000003000000130000000100000004000000000000000200000017000000
         paramByteDataSize: 000000000000000000000000010000000400000000000000000000000000000001000000040000000000000000000000000000000100000004000000040000000000000000000000040000000000000000000000000000000000000001000000
+    - name: Die
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 62.859375
+        y: 57.25
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetAnimatorBool
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5f913504
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: IsDead
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 0000000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000110000000100000007000000
+        paramName:
+        - gameObject
+        - parameter
+        - Value
+        - everyFrame
+        - everyFrameOption
+        paramDataPos: 0000000000000000000000000000000001000000
+        paramByteDataSize: 0000000000000000000000000100000004000000
     events:
     - name: Walk
       isSystemEvent: 0
@@ -2759,6 +3175,9 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
+    - name: Die
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables:
@@ -2768,7 +3187,13 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 0
-      intVariables: []
+      intVariables:
+      - useVariable: 1
+        name: Health
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       boolVariables: []
       stringVariables: []
       vector2Variables: []
@@ -2784,7 +3209,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000
+      variableCategoryIDs: 0000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
