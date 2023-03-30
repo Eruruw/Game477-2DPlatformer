@@ -6,7 +6,7 @@ using WC = TempWeaponController;
 using IC = ItemController;
 
 public class HPController : MonoBehaviour
-{
+{       
     public int CurrentHP;
     public int HPCap;
     public float DeathDuration = 3f;
@@ -84,6 +84,10 @@ public class HPController : MonoBehaviour
         {
             gameObject.tag = "Untagged";
         }
+        var physics = gameObject.GetComponent("Rigidbody2D");
+        var hitbox = gameObject.GetComponent("BoxCollider2D");
+        Destroy(physics);
+        Destroy(hitbox);
         yield return new WaitForSeconds(DeathDuration);
         Debug.Log("Dead");
         if (gameObject.tag == "Player") {

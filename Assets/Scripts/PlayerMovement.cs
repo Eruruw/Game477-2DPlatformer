@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     HPController HPCon;
+    AudioSource whipit;
     public float ammo = 0f;
     private GameObject attackArea = default;
     private float attackCD = 0.25f;
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start() {
         attackArea = transform.GetChild(0).gameObject;
         HPCon = GetComponent<HPController>();
+        whipit = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -98,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
                     attackTime = 0;
                     isAttacking = false;
                     attackArea.SetActive(isAttacking);
+                    //here
+                    whipit.PlayOneShot(whipit.clip, 1f);
                 }
             }
 
