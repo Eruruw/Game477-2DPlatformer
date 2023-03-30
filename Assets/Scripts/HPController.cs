@@ -33,6 +33,19 @@ public class HPController : MonoBehaviour
                     CurrentHP -= WC.WhipDamage;
                 }
                 break;
+            case Weapon.Fireball:
+                if (CurrentHP - WC.FireballDamage <= 0)
+                {
+                    CurrentHP = 0;
+                    IsStillKickinIt = false;
+                    GetComponent<EnemyStateMachine>().enabled = false;
+                    StartCoroutine(Tragedy());
+                }
+                else
+                {
+                    CurrentHP -= WC.FireballDamage;
+                }
+                break;
             default:
                 break;
         }
